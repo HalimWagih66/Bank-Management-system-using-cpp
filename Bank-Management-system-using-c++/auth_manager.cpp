@@ -9,32 +9,36 @@ AuthManager* AuthManager::instance = nullptr;
 
 AuthManager::AuthManager() {}
 
+// Sets the currently logged-in user in the singleton instance
 void AuthManager::setUserLogged(const UserInfo& user) {
-	instance->userLogged = user;
+    instance->userLogged = user;
 }
 
-const UserInfo& AuthManager::getUserLogged() const{
-	return instance->userLogged;
+// Returns a constant reference to the currently logged-in user
+const UserInfo& AuthManager::getUserLogged() const {
+    return instance->userLogged;
 }
 
+// Returns the singleton instance of AuthManager, creates it if not existing
 AuthManager& AuthManager::getInstance() {
-	if (instance == nullptr)
-	{
-		instance = new AuthManager();
-		instance->userLogged = UserInfo();
-	}
-	return *instance;
+    if (instance == nullptr)
+    {
+        // Create a new instance and initialize userLogged with a default UserInfo object
+        instance = new AuthManager();
+        instance->userLogged = UserInfo();
+    }
+    return *instance;
 }
 
+// Destroys the singleton instance, freeing memory
 void AuthManager::destroyInstance()
 {
-	if (instance != nullptr)
-	{
-		delete instance;
-		instance = nullptr;
-	}
+    if (instance != nullptr)
+    {
+        delete instance;
+        instance = nullptr;
+    }
 }
-
  
 void AuthManager::ShowLoginScreen() {
     short UserIndex = -2;  // Index of the user in the user list; initialized with an invalid value

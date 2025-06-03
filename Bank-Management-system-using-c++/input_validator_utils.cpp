@@ -1,32 +1,46 @@
 #include "input_validator_utils.h"
 #include "string_operations.h"
 
+// Checks if the password is valid based on length and character composition:
+// - Length must be between 8 and 16 characters
+// - Must contain both lowercase and uppercase letters
+// - Must contain at least one special character
+// - Must contain at least one digit
 bool InputValidatorUtils::IsValidPassword(const string& password)
 {
 	if (password.size() < 8 || password.size() > 16) return false;
-	if (!(StringOperations::HasLowerCase(password) && StringOperations::HasUpperCase(password)))return false;
-	if (!StringOperations::HasSpecialCharacter(password))return false;
-	if (!StringOperations::HasNumber(password))return false;
-
+	if (!(StringOperations::HasLowerCase(password) && StringOperations::HasUpperCase(password))) return false;
+	if (!StringOperations::HasSpecialCharacter(password)) return false;
+	if (!StringOperations::HasNumber(password)) return false;
 
 	return true;
 }
 
+// Checks if the username is valid based on:
+// - Length between 4 and 20 characters
+// - Starts with an alphabetic character
+// - Contains no spaces
+// - Contains only alphabetic characters, possibly with one dot or underscore
 bool InputValidatorUtils::IsValidUsername(const string& Username)
 {
-	if (Username.size() < 4 || Username.size() > 20)return false;
-	if (!(isalpha(Username[0])))return false;
-	if (StringOperations::HasSpace(Username))return false;
-	if (!StringOperations::IsAlphaNameWithOneDotOrUnderscore(Username))return false;
+	if (Username.size() < 4 || Username.size() > 20) return false;
+	if (!isalpha(Username[0])) return false;
+	if (StringOperations::HasSpace(Username)) return false;
+	if (!StringOperations::IsAlphaNameWithOneDotOrUnderscore(Username)) return false;
 
 	return true;
 }
 
+// Validates both username and password of a UserInfo object.
+// Note: There is a bug here - it should check username, not password twice.
 bool InputValidatorUtils::IsValidUsernameAndPassword(const UserInfo& User)
 {
-	return (InputValidatorUtils::IsValidPassword(User.Password) && InputValidatorUtils::IsValidUsername(User.Password));
+	return (InputValidatorUtils::IsValidPassword(User.Password) && InputValidatorUtils::IsValidUsername(User.Username));
 }
 
+// Checks if a PIN code is valid based on:
+// - Length must be either 4 or 6 digits
+// - Must consist only of digits
 bool InputValidatorUtils::IsValidPinCode(const string& PinCode)
 {
 	if (PinCode.length() != 4 && PinCode.length() != 6) {
