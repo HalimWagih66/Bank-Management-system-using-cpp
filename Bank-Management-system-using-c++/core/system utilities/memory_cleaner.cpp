@@ -1,6 +1,8 @@
 #include "memory_cleaner.h"
-#include "bank_system.h"
-#include "manage_users.h"
+#include "../../features/bank system/bank_system.h"
+#include "../../features/manage users/manage_users.h"
+
+
 // Cleans up singleton instances to free memory and prevent leaks
 void MemoryCleaner::CleanUpSingleton()
 {

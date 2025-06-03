@@ -1,10 +1,10 @@
 #include "user_info.h"
 #include <iomanip>
-#include "input_validator_utils.h"
 #include <iostream>
-#include"console_helper.h"
 #include <array>
-#include "string_operations.h"
+#include "../../../core/utils/headers/string_operations.h"
+#include "../../../core/utils/headers/input_validator_utils.h"
+#include "../../../core/utils/headers/console_helper.h"
 
 // Converts a user object to a string record.
 string UserInfo::ConvertUserToRecord(const UserInfo& user, string seprete) {

@@ -2,15 +2,18 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include "manage_users.h"
-#include "string_operations.h"
-#include "data_reader.h"
+#include "models/client_info.h"
+#include "../../core/utils/headers/file_operations.h"
+#include "../../core/constants/file_names.h"
+#include "../../core/utils/headers/string_operations.h"
+#include "../../core/utils/headers/console_helper.h"
+#include "../../core/utils/headers/data_reader.h"
+#include "../../core/utils/headers/big_number_utils.h"
 #include <iomanip>
-#include "console_helper.h"
-#include "big_number_utils.h"
-#include "client_info.h"
-#include "file_names.h"
-#include "file_operations.h"
+#include "../manage users/manage_users.h"
+#include "../auth manager/auth_manager.h"
+#include "../manage users/models/user_info.h"
+
 
 BankSystem* BankSystem::instance = nullptr;
 
@@ -71,7 +74,7 @@ short BankSystem::GetPositionClientByAccountNumber(const string& AccountNumber) 
 	for (short i = 0; i < Clients.size(); i++)
 	{
 		// Check if the current client's account number matches the given one
-		if (Clients[i].AccountNumber == AccountNumber)
+		if (Clients[i].getAccountNumber() == AccountNumber)
 		{
 			pos = i; // Save the position
 			break;   // Exit the loop once found
@@ -332,7 +335,7 @@ string BankSystem::GenerateNextAccountNumber() {
 	}
 
 	// Get the last client's account number (assuming the list is ordered by creation)
-	string lastAccountNumber = Clients.back().AccountNumber;
+	string lastAccountNumber = Clients.back().getAccountNumber();
 
 	// Increment the account number by 1 while preserving formatting (e.g., leading zeros)
 	return BigNumberUtils::IncrementOneNumber(lastAccountNumber);
@@ -405,11 +408,11 @@ void BankSystem::ShowDepositScreen() {
 	if (ConsoleHelper::AreYouSure("Are you sure want perform this transaction? Y/N ? "))
 	{
 		// Perform the deposit by adding to the client's balance
-		Clients[PosIndexClient].AccountBalance += depositAmount;
+		Clients[PosIndexClient].setAccountBalance(Clients[PosIndexClient].getAccountBalance() + depositAmount);
 
 		// Inform the user of success and show the new balance
 		cout << "\nDeposit successful.\n";
-		cout << "New Balance: " << Clients[PosIndexClient].AccountBalance << " EG\n";
+		cout << "New Balance: " << Clients[PosIndexClient].getAccountBalance() << " EG\n";
 	}
 	else
 	{
@@ -429,13 +432,13 @@ void BankSystem::ShowWithdrawScreen() {
 	ClientInfo::PrintClientCard(Clients[PosIndexClient]);
 
 	// Ask the user for the withdrawal amount and calculate the new balance
-	short balanceAfterWithdraw = GetWithdrawAmount(Clients[PosIndexClient].AccountBalance);
+	short balanceAfterWithdraw = GetWithdrawAmount(Clients[PosIndexClient].getAccountBalance());
 
 	// Confirm the transaction with the user
 	if (ConsoleHelper::AreYouSure("Are you sure want perform this transaction? Y/N ? ")) {
 		// If confirmed, update the client's account balance
-		Clients[PosIndexClient].AccountBalance = balanceAfterWithdraw;
-		cout << "\nDone Successfully. Now Balance is : " << Clients[PosIndexClient].AccountBalance << endl;
+		Clients[PosIndexClient].setAccountBalance(balanceAfterWithdraw);
+		cout << "\nDone Successfully. Now Balance is : " << Clients[PosIndexClient].getAccountBalance() << endl;
 	}
 	else {
 		// If not confirmed, cancel the transaction
@@ -454,8 +457,8 @@ void BankSystem::ShowTotalBalancesScreen() {
 	int TotalSumBalance = 0;
 	for (const ClientInfo& ClientInfo : Clients)
 	{
-		cout << " | " << left << setw(16) << ClientInfo.AccountNumber << " | " << left << setw(40) << ClientInfo.name << " | " << ClientInfo.AccountBalance << endl;
-		TotalSumBalance += ClientInfo.AccountBalance;
+		cout << " | " << left << setw(16) << ClientInfo.getAccountNumber() << " | " << left << setw(40) << ClientInfo.getName() << " | " << ClientInfo.getAccountBalance() << endl;
+		TotalSumBalance += ClientInfo.getAccountBalance();
 	}
 	cout << "==================================================================================\n\n";
 	cout << "\t\tTotal Balances : " << TotalSumBalance << endl;

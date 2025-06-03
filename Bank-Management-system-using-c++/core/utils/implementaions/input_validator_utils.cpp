@@ -1,5 +1,7 @@
-#include "input_validator_utils.h"
-#include "string_operations.h"
+#include "../headers/input_validator_utils.h"
+#include "../headers/string_operations.h"
+#include "../../../features/manage users/models/user_info.h"
+
 
 // Checks if the password is valid based on length and character composition:
 // - Length must be between 8 and 16 characters
@@ -33,9 +35,9 @@ bool InputValidatorUtils::IsValidUsername(const string& Username)
 
 // Validates both username and password of a UserInfo object.
 // Note: There is a bug here - it should check username, not password twice.
-bool InputValidatorUtils::IsValidUsernameAndPassword(const UserInfo& User)
+bool InputValidatorUtils::IsValidUsernameAndPassword(const string& Username, const string& Password)
 {
-	return (InputValidatorUtils::IsValidPassword(User.Password) && InputValidatorUtils::IsValidUsername(User.Username));
+	return (InputValidatorUtils::IsValidPassword(Password) && InputValidatorUtils::IsValidUsername(Username));
 }
 
 // Checks if a PIN code is valid based on:

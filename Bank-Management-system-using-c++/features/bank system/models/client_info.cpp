@@ -2,9 +2,9 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
-#include "string_operations.h"
-#include "input_validator_utils.h"
 #include <vector>
+#include "../../../core/utils/headers/string_operations.h"
+#include "../../../core/utils/headers/input_validator_utils.h"
 
 ClientInfo::ClientInfo() {
 	AccountNumber = "";

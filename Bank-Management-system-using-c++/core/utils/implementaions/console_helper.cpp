@@ -1,5 +1,5 @@
-#include "console_helper.h"
 #include <iostream>
+#include "../headers/console_helper.h"
 
 void ConsoleHelper::ShowMessageAndPauseThenClear(string message)
 {

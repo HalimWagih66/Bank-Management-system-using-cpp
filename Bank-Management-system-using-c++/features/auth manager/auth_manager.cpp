@@ -1,10 +1,11 @@
 #include "auth_manager.h"
-#include "console_helper.h"
 #include <iostream>
-#include "bank_system.h"
-#include "manage_users.h"
-#include "input_validator_utils.h"
-#include "memory_cleaner.h"
+#include "../manage users/models/user_info.h"
+#include "../manage users/manage_users.h"
+#include "../../core/utils/headers/console_helper.h"
+#include "../bank system/bank_system.h"
+#include "../../core/system utilities/memory_cleaner.h"
+
 AuthManager* AuthManager::instance = nullptr;
 
 AuthManager::AuthManager() {}

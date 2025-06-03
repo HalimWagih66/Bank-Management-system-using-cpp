@@ -4,15 +4,47 @@
 using namespace std;
 class UserInfo
 {
-public:
+private:
 	string Username;
 	string Password;
 	short Permissions;
+public:
 	UserInfo() {
 		Username = "";
 		Password = "";
 		Permissions = 0;
 	}
+
+	UserInfo(string username, string password, short permissions) {
+		Username = username;
+		Password = password;
+		Permissions = permissions;
+	}
+
+	void SetUsername(const string& username) {
+		Username = username;
+	}
+
+	void SetPassword(const string& password) {
+		Password = password;
+	}
+
+	void SetPermissions(const short& permissions) {
+		Permissions = permissions;
+	}
+
+	string GetUsername() const {
+		return Username;
+	}
+
+	string GetPassword() const {
+		return Password;
+	}
+
+	short GetPermissions() const {
+		return Permissions;
+	}
+
 	static string ConvertUserToRecord(const UserInfo& userInfo, string seprete = "#//#");
 
 	static UserInfo ConvertRecordToUser(const string& Record, string Seprete = "#//#");

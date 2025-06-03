@@ -1,5 +1,5 @@
 #pragma once
-#include "user_info.h"
+#include "../manage users/models/user_info.h"
 using namespace std;
 class AuthManager
 {

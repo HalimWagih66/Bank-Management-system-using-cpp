@@ -123,35 +123,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="auth_manager.cpp" />
-    <ClCompile Include="Bank_Management_system_using_c++.cpp" />
-    <ClCompile Include="bank_system.cpp" />
-    <ClCompile Include="big_number_utils.cpp" />
-    <ClCompile Include="client_info.cpp" />
-    <ClCompile Include="console_helper.cpp" />
-    <ClCompile Include="data_reader.cpp" />
-    <ClCompile Include="file_names.cpp" />
-    <ClCompile Include="file_operations.cpp" />
-    <ClCompile Include="input_validator_utils.cpp" />
-    <ClCompile Include="manage_users.cpp" />
-    <ClCompile Include="memory_cleaner.cpp" />
-    <ClCompile Include="string_operations.cpp" />
-    <ClCompile Include="user_info.cpp" />
+    <ClCompile Include="core\constants\file_names.cpp" />
+    <ClCompile Include="core\system utilities\memory_cleaner.cpp" />
+    <ClCompile Include="core\utils\implementaions\big_number_utils.cpp" />
+    <ClCompile Include="core\utils\implementaions\console_helper.cpp" />
+    <ClCompile Include="core\utils\implementaions\data_reader.cpp" />
+    <ClCompile Include="core\utils\implementaions\file_operations.cpp" />
+    <ClCompile Include="core\utils\implementaions\input_validator_utils.cpp" />
+    <ClCompile Include="core\utils\implementaions\string_operations.cpp" />
+    <ClCompile Include="features\auth manager\auth_manager.cpp" />
+    <ClCompile Include="features\bank system\bank_system.cpp" />
+    <ClCompile Include="features\bank system\models\client_info.cpp" />
+    <ClCompile Include="features\manage users\manage_users.cpp" />
+    <ClCompile Include="features\manage users\models\user_info.cpp" />
+    <ClCompile Include="src\Bank_Management_system_using_c++.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="auth_manager.h" />
-    <ClInclude Include="bank_system.h" />
-    <ClInclude Include="big_number_utils.h" />
-    <ClInclude Include="client_info.h" />
-    <ClInclude Include="console_helper.h" />
-    <ClInclude Include="data_reader.h" />
-    <ClInclude Include="file_names.h" />
-    <ClInclude Include="file_operations.h" />
-    <ClInclude Include="input_validator_utils.h" />
-    <ClInclude Include="manage_users.h" />
-    <ClInclude Include="memory_cleaner.h" />
-    <ClInclude Include="string_operations.h" />
-    <ClInclude Include="user_info.h" />
+    <ClInclude Include="core\constants\file_names.h" />
+    <ClInclude Include="core\system utilities\memory_cleaner.h" />
+    <ClInclude Include="core\utils\headers\big_number_utils.h" />
+    <ClInclude Include="core\utils\headers\console_helper.h" />
+    <ClInclude Include="core\utils\headers\data_reader.h" />
+    <ClInclude Include="core\utils\headers\file_operations.h" />
+    <ClInclude Include="core\utils\headers\input_validator_utils.h" />
+    <ClInclude Include="core\utils\headers\string_operations.h" />
+    <ClInclude Include="features\auth manager\auth_manager.h" />
+    <ClInclude Include="features\bank system\bank_system.h" />
+    <ClInclude Include="features\bank system\models\client_info.h" />
+    <ClInclude Include="features\manage users\manage_users.h" />
+    <ClInclude Include="features\manage users\models\user_info.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

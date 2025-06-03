@@ -2,13 +2,34 @@
 #include <string>
 using namespace std;
 class ClientInfo {
-public:
 
+private:
 	string AccountNumber;
 	string PinCode;
 	string name;
 	string PhoneNumber;
 	int AccountBalance;
+public:
+
+	void setAccountNumber(const string& accountNumber) { AccountNumber = accountNumber; }
+
+	void setPinCode(const string& pinCode) { PinCode = pinCode; }
+
+	void setName(const string& name) { this->name = name; }
+
+	void setPhoneNumber(const string& phoneNumber) { PhoneNumber = phoneNumber; }
+
+	void setAccountBalance(int accountBalance) { AccountBalance = accountBalance; }
+
+	string getAccountNumber() const { return AccountNumber; }
+
+	string getPinCode() const { return PinCode; }
+
+	string getName() const { return name; }
+
+	string getPhoneNumber() const { return PhoneNumber; }
+
+	int getAccountBalance() const { return AccountBalance; }
 
 	ClientInfo();
 

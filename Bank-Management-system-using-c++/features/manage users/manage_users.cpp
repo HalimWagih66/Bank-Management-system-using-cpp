@@ -1,14 +1,15 @@
 #include "manage_users.h"
 #include <string>
 #include <vector>
-#include "input_validator_utils.h"
-#include "console_helper.h"
 #include <iostream>
-#include "file_operations.h"
-#include "data_reader.h"
-#include "bank_system.h"
-#include "file_names.h"
 #include <iomanip>
+#include "models/user_info.h"
+#include "../../core/constants/file_names.h"
+#include "../../core/utils/headers/file_operations.h"
+#include "../../core/utils/headers/data_reader.h"
+#include "../../core/utils/headers/input_validator_utils.h"
+#include "../../core/utils/headers/console_helper.h"
+#include "../auth manager/auth_manager.h"
 
 ManageUsers* ManageUsers::instance = nullptr;
 
@@ -19,7 +20,7 @@ short ManageUsers::FindUserByUsername(string UserName)
 {
 	for (short counter = 0; counter < instance->Users.size(); counter++)
 	{
-		if (instance->Users[counter].Username == UserName) return counter;
+		if (instance->Users[counter].GetUsername() == UserName) return counter;
 	}
 	return -1;
 }
@@ -29,7 +30,7 @@ short ManageUsers::FindUserByUsernameAndPassword(const UserInfo& userInfo)
 {
 	for (short counter = 0; counter < instance->Users.size(); counter++)
 	{
-		if (instance->Users[counter].Username == userInfo.Username && instance->Users[counter].Password == userInfo.Password) return counter;
+		if (instance->Users[counter].GetUsername() == userInfo.GetUsername() && instance->Users[counter].GetPassword() == userInfo.GetPassword()) return counter;
 	}
 	return -1;
 }
@@ -87,7 +88,7 @@ short ManageUsers::ReadManageUsersMenuOption() {
 // Checks if a user exists based on username and password
 bool ManageUsers::IsUserExist(const UserInfo& UserSearch) {
 	for (const UserInfo& user : instance->Users) {
-		if ((UserSearch.Username == user.Username) && (UserSearch.Password == user.Password)) return true;
+		if ((UserSearch.GetUsername() == user.GetUsername()) && (UserSearch.GetPassword() == user.GetPassword())) return true;
 	}
 	return false;
 }
@@ -175,12 +176,12 @@ void ManageUsers::ShowDeleteUserScreen()
 		return;
 	}
 	// Prevent deletion of Admin user
-	if (instance->Users[UserIndex].Username == "Admin") {
+	if (instance->Users[UserIndex].GetUsername() == "Admin") {
 		cout << "You Cannot Delete This User\n";
 		return;
 	}
 	// Prevent deletion of currently logged-in user
-	if (Username == AuthManager::getInstance().getUserLogged().Username) {
+	if (Username == AuthManager::getInstance().getUserLogged().GetUsername()) {
 		cout << "You cannot delete the currently logged-in user.\n";
 		return;
 	}
@@ -333,7 +334,7 @@ void ManageUsers::destroyInstance() {
 // otherwise returns -1
 short ManageUsers::GetPositionUserInListByUsernameAndPassword(const UserInfo& user)
 {
-	return (InputValidatorUtils::IsValidPassword(user.Password) && InputValidatorUtils::IsValidUsername(user.Username))
+	return (InputValidatorUtils::IsValidPassword(user.GetPassword()) && InputValidatorUtils::IsValidUsername(user.GetUsername()))
 		? FindUserByUsernameAndPassword(user)
 		: -1;
 }
@@ -347,7 +348,7 @@ void ManageUsers::EditUserFields(UserInfo& user)
 		do
 		{
 			if (FindUserByUsername(username) == -1) {
-				user.Username = username;
+				user.SetUsername(username);
 				break;
 			}
 			else {

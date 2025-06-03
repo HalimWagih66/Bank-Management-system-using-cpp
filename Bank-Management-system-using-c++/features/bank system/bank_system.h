@@ -1,8 +1,7 @@
 #pragma once
 #include <vector>
-#include "client_info.h"
-#include "user_info.h"
-#include "auth_manager.h"
+#include "models/client_info.h"
+
 using namespace std;
 enum enMainMenuOptions
 {
