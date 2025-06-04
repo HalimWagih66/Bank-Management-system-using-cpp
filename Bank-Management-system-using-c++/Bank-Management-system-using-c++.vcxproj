@@ -123,7 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="core\constants\file_names.cpp" />
+    <ClCompile Include="core\constants\file_pathes.cpp" />
     <ClCompile Include="core\system utilities\memory_cleaner.cpp" />
     <ClCompile Include="core\utils\implementaions\big_number_utils.cpp" />
     <ClCompile Include="core\utils\implementaions\console_helper.cpp" />
@@ -139,7 +139,7 @@
     <ClCompile Include="src\Bank_Management_system_using_c++.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="core\constants\file_names.h" />
+    <ClInclude Include="core\constants\file_pathes.h" />
     <ClInclude Include="core\system utilities\memory_cleaner.h" />
     <ClInclude Include="core\utils\headers\big_number_utils.h" />
     <ClInclude Include="core\utils\headers\console_helper.h" />
@@ -152,6 +152,10 @@
     <ClInclude Include="features\bank system\models\client_info.h" />
     <ClInclude Include="features\manage users\manage_users.h" />
     <ClInclude Include="features\manage users\models\user_info.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\Clients.txt" />
+    <Text Include="data\Users.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

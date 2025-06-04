@@ -4,7 +4,7 @@
 #include <iostream>
 #include "models/client_info.h"
 #include "../../core/utils/headers/file_operations.h"
-#include "../../core/constants/file_names.h"
+#include "../../core/constants/file_pathes.h"
 #include "../../core/utils/headers/string_operations.h"
 #include "../../core/utils/headers/console_helper.h"
 #include "../../core/utils/headers/data_reader.h"
@@ -52,12 +52,12 @@ void BankSystem::SaveClients() {
 	}
 
 	// Save all the client records to the file designated for client data
-	FileOperations::SaveRecordsInFile(vRecords, FileNames::Clients);
+	FileOperations::SaveRecordsInFile(vRecords, FilePathes::Clients);
 }
 // Restores the list of clients from the saved file.
 void BankSystem::RestoreUsersFromFile() {
 	// Read all the client records from the file as strings
-	vector<string> Records = FileOperations::RestoreDataFromFile(FileNames::Clients);
+	vector<string> Records = FileOperations::RestoreDataFromFile(FilePathes::Clients);
 
 	// Convert each string record back into a ClientInfo object and add it to the Clients vector
 	for (string Record : Records)

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include "models/user_info.h"
-#include "../../core/constants/file_names.h"
+#include "../../core/constants/file_pathes.h"
 #include "../../core/utils/headers/file_operations.h"
 #include "../../core/utils/headers/data_reader.h"
 #include "../../core/utils/headers/input_validator_utils.h"
@@ -48,12 +48,12 @@ void ManageUsers::SaveUsers() {
 	{
 		vRecords.push_back(UserInfo::ConvertUserToRecord(user));
 	}
-	FileOperations::SaveRecordsInFile(vRecords, FileNames::Users);
+	FileOperations::SaveRecordsInFile(vRecords, FilePathes::Users);
 }
 
 // Restores users from file by reading records and converting them to UserInfo objects
 void ManageUsers::RestoreUsersFromFile() {
-	vector<string> Records = FileOperations::RestoreDataFromFile(FileNames::Users);
+	vector<string> Records = FileOperations::RestoreDataFromFile(FilePathes::Users);
 	for (string Record : Records)
 	{
 		instance->Users.push_back(UserInfo::ConvertRecordToUser(Record));

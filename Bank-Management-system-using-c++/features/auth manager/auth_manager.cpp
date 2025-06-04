@@ -51,7 +51,7 @@ void AuthManager::ShowLoginScreen() {
         ConsoleHelper::ShowScreenHeader("Login Screen");  // Display the login screen header
 
         if (UserIndex == -1) {  // If UserIndex is -1, it means invalid username/password was entered
-            cout << "Invalid Username/Password!\n\n";    // Show error message to the user
+            cout << "Invalid Username/Password!";    // Show error message to the user
             ConsoleHelper::PauseAndClearScreen();        // Pause for user to read message, then clear screen
             ConsoleHelper::ShowScreenHeader("Login Screen"); // Re-display login screen header
         }

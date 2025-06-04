@@ -46,7 +46,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="core\constants\file_names.cpp">
+    <ClCompile Include="core\constants\file_pathes.cpp">
       <Filter>core\constants</Filter>
     </ClCompile>
     <ClCompile Include="core\system utilities\memory_cleaner.cpp">
@@ -90,7 +90,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="core\constants\file_names.h">
+    <ClInclude Include="core\constants\file_pathes.h">
       <Filter>core\constants</Filter>
     </ClInclude>
     <ClInclude Include="core\system utilities\memory_cleaner.h">
@@ -129,5 +129,13 @@
     <ClInclude Include="core\utils\headers\string_operations.h">
       <Filter>core\Utils\headers</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\Users.txt">
+      <Filter>data</Filter>
+    </Text>
+    <Text Include="data\Clients.txt">
+      <Filter>data</Filter>
+    </Text>
   </ItemGroup>
 </Project>
