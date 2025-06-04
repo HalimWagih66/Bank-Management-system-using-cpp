@@ -1,4 +1,6 @@
 # C++ Bank Management System
+> 💻 **Developer:** [Halim Wagih](https://github.com/HalimWagih66)
+
 
 A modular, file-based bank management system written in C++14. This project provides a simple yet extensible platform for managing users and client accounts, supporting core banking operations such as deposit, withdrawal, and user administration. The system is designed with maintainability and scalability in mind, using object-oriented principles and the Singleton pattern for key managers.
 
@@ -126,5 +128,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Acknowledgments
 
-- Developed using Visual Studio 2022
-- Inspired by classic console-based management systems
+- Developed by [Halim Wagih](https://github.com/HalimWagih66)
+- Built using Visual Studio 2022
