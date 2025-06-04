@@ -31,24 +31,42 @@ A modular, file-based bank management system written in C++14. This project prov
 
 ## Project Structure
 
-Bank-Management-system-using-c++/
--├── core/ # Core system components
--│ ├── constants/ # File paths and constants
--│ ├── system_utilities/ # System-level helpers (memory management)
-│ ├── utils/ # Utility functions
-│ ├── headers/ # Utility headers (file, string, input)
-│ └── implementations/ # Utility implementations
-├── features/ # Main system features
-│ ├── auth_manager/ # User authentication logic
-│ ├── bank_system/ # Client account operations
-│ └── manage_users/ # User CRUD operations
-├── data/ # Data storage files
-│ ├── Users.txt # User credentials and data
-│ └── Clients.txt # Client account information
-├── src/ # Source code
-│ └── Bank_Management_system_using_c++.cpp # Main program file
-├── Bank-Management-system-using-c++.sln # Visual Studio solution file
-└── README.md # Project documentation
+<ul>
+  <li><strong>Bank-Management-system-using-c++/</strong>
+    <ul>
+      <li><strong>core/</strong>
+        <ul>
+          <li><code>constants/</code> – File paths and constants</li>
+          <li><code>system_utilities/</code> – System-level helpers (memory management)</li>
+          <li><code>utils/</code> – Utility functions</li>
+          <li><code>headers/</code> – Utility headers (file, string, input)</li>
+          <li><code>implementations/</code> – Utility implementations</li>
+        </ul>
+      </li>
+      <li><strong>features/</strong>
+        <ul>
+          <li><code>auth_manager/</code> – User authentication logic</li>
+          <li><code>bank_system/</code> – Client account operations</li>
+          <li><code>manage_users/</code> – User CRUD operations</li>
+        </ul>
+      </li>
+      <li><strong>data/</strong>
+        <ul>
+          <li><code>Users.txt</code> – User credentials and data</li>
+          <li><code>Clients.txt</code> – Client account information</li>
+        </ul>
+      </li>
+      <li><strong>src/</strong>
+        <ul>
+          <li><code>Bank_Management_system_using_c++.cpp</code> – Main program file</li>
+        </ul>
+      </li>
+      <li><code>Bank-Management-system-using-c++.sln</code> – Visual Studio solution file</li>
+      <li><code>README.md</code> – Project documentation</li>
+    </ul>
+  </li>
+</ul>
+
 
 
 ---
@@ -79,7 +97,7 @@ Bank-Management-system-using-c++/
 
 ## Usage
 
-- On launch, log in with your credentials (default admin user may be `Admin`).
+- On launch, log in with your credentials (default admin user may be `Admin.Halim and Password: 12345678aE$`).
 - Navigate through the main menu to manage users or client accounts.
 - All changes are saved automatically to the `data/` directory.
 
