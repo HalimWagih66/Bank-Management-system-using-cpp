@@ -32,26 +32,21 @@ A modular, file-based bank management system written in C++14. This project prov
 ## Project Structure
 
 Bank-Management-system-using-c++/
-│
-├── core/ # Core system components
-│ ├── constants/ # File paths and constants
-│ ├── system utilities/ # System-level helpers (memory management)
-│ └── utils/ # Utility functions
+-├── core/ # Core system components
+-│ ├── constants/ # File paths and constants
+-│ ├── system_utilities/ # System-level helpers (memory management)
+│ ├── utils/ # Utility functions
 │ ├── headers/ # Utility headers (file, string, input)
 │ └── implementations/ # Utility implementations
-│
 ├── features/ # Main system features
-│ ├── auth manager/ # User authentication logic
-│ ├── bank system/ # Client account operations
-│ └── manage users/ # User CRUD operations
-│
+│ ├── auth_manager/ # User authentication logic
+│ ├── bank_system/ # Client account operations
+│ └── manage_users/ # User CRUD operations
 ├── data/ # Data storage files
 │ ├── Users.txt # User credentials and data
 │ └── Clients.txt # Client account information
-│
 ├── src/ # Source code
 │ └── Bank_Management_system_using_c++.cpp # Main program file
-│
 ├── Bank-Management-system-using-c++.sln # Visual Studio solution file
 └── README.md # Project documentation
 
