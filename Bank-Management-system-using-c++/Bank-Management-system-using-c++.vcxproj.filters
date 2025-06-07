@@ -76,9 +76,6 @@
     <ClCompile Include="core\utils\implementaions\console_helper.cpp">
       <Filter>core\Utils\implementaion</Filter>
     </ClCompile>
-    <ClCompile Include="core\utils\implementaions\data_reader.cpp">
-      <Filter>core\Utils\implementaion</Filter>
-    </ClCompile>
     <ClCompile Include="core\utils\implementaions\file_operations.cpp">
       <Filter>core\Utils\implementaion</Filter>
     </ClCompile>
@@ -86,6 +83,9 @@
       <Filter>core\Utils\implementaion</Filter>
     </ClCompile>
     <ClCompile Include="core\utils\implementaions\string_operations.cpp">
+      <Filter>core\Utils\implementaion</Filter>
+    </ClCompile>
+    <ClCompile Include="core\utils\implementaions\data_reader.cpp">
       <Filter>core\Utils\implementaion</Filter>
     </ClCompile>
   </ItemGroup>
@@ -117,9 +117,6 @@
     <ClInclude Include="core\utils\headers\console_helper.h">
       <Filter>core\Utils\headers</Filter>
     </ClInclude>
-    <ClInclude Include="core\utils\headers\data_reader.h">
-      <Filter>core\Utils\headers</Filter>
-    </ClInclude>
     <ClInclude Include="core\utils\headers\file_operations.h">
       <Filter>core\Utils\headers</Filter>
     </ClInclude>
@@ -127,6 +124,9 @@
       <Filter>core\Utils\headers</Filter>
     </ClInclude>
     <ClInclude Include="core\utils\headers\string_operations.h">
+      <Filter>core\Utils\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="core\utils\headers\data_reader.h">
       <Filter>core\Utils\headers</Filter>
     </ClInclude>
   </ItemGroup>

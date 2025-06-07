@@ -166,14 +166,6 @@ string StringOperations::RemovePauncuations(string text) {
     return S2;
 }
 
-// Reads a string from user input
-string StringOperations::ReadString() {
-    string line;
-    cout << "Please Enter Your String : ";
-    getline(cin, line);
-    return line;
-}
-
 // Replaces all matching words in a string with another word (case sensitive or insensitive)
 string StringOperations::ReplaceWordInString(string line, string find, string replace, bool IsMatchCase) {
     vector<string> separate = SplitString(line, " ");

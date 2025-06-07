@@ -18,7 +18,7 @@
 BankSystem* BankSystem::instance = nullptr;
 
 BankSystem::BankSystem() {
-	RestoreUsersFromFile();
+	RestoreClientsFromFile();
 }
 BankSystem::~BankSystem() {
 	SaveClients();
@@ -55,7 +55,7 @@ void BankSystem::SaveClients() {
 	FileOperations::SaveRecordsInFile(vRecords, FilePathes::Clients);
 }
 // Restores the list of clients from the saved file.
-void BankSystem::RestoreUsersFromFile() {
+void BankSystem::RestoreClientsFromFile() {
 	// Read all the client records from the file as strings
 	vector<string> Records = FileOperations::RestoreDataFromFile(FilePathes::Clients);
 
@@ -92,8 +92,7 @@ string BankSystem::ReadAccountNumber()
 
 	do {
 		// Prompt the user to enter an account number
-		cout << "Please enter Account Number (10 digits): ";
-		getline(cin >> ws, accountNumber); // Read the input, ignoring leading whitespace
+		accountNumber = DataReader::PromptAndReadLine("Please enter Account Number (10 digits): "); 
 
 		// Validate the input: check if it's 10 digits and all numeric
 		if (accountNumber.size() != 10 || !(StringOperations::IsWordAllDigits(accountNumber))) {

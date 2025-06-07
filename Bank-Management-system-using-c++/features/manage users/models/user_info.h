@@ -71,7 +71,7 @@ public:
 
 	static bool IsValidPasswordAndUsername(const UserInfo& user);
 
-	void ReadFullInfoUser(string UserName);
+	void ReadFullInfoUser(const string& UserName);
 
 	void EditPassword();
 

@@ -21,7 +21,7 @@ private:
 
 	void SaveClients();
 
-	void RestoreUsersFromFile();
+	void RestoreClientsFromFile();
 
 	void PrintHeaderTable();
 

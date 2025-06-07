@@ -1,6 +1,5 @@
-#include <iostream>
 #include "../headers/data_reader.h"
-using namespace std;
+#include <iostream>
 
 int DataReader::ReadNumber() {
     int number = 0;               // Variable to store the user input
@@ -17,4 +16,19 @@ int DataReader::ReadNumber() {
     }
 
     return number;               // Return the valid integer input
+}
+
+string DataReader::PromptAndReadLine(const string message)
+{
+    string input;
+    cout << message;
+    getline(cin >> ws, input);
+    return input;
+}
+int DataReader::PromptAndReadNumber(const string message)
+{
+    int number = 0;
+    cout << message;
+    number = ReadNumber();  // Call ReadNumber to get a valid integer input
+    return number;          // Return the valid integer input
 }

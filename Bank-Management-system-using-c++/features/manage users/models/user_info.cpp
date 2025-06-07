@@ -5,6 +5,7 @@
 #include "../../../core/utils/headers/string_operations.h"
 #include "../../../core/utils/headers/input_validator_utils.h"
 #include "../../../core/utils/headers/console_helper.h"
+#include "../../../core/utils/headers/data_reader.h"
 
 // Converts a user object to a string record.
 string UserInfo::ConvertUserToRecord(const UserInfo& user, string seprete) {
@@ -32,13 +33,11 @@ UserInfo UserInfo::ConvertRecordToUser(const string& Record, string delim)
 
 // Reads and validates the username from user input.
 void UserInfo::ReadUsername() {
-	cout << "Please Enter Username : ";
-	string username;
-	getline(cin >> ws, username);
+	string username = DataReader::PromptAndReadLine("Please Enter Username : ");
+
 	while (!InputValidatorUtils::IsValidUsername(username)) {
 		ConsoleHelper::ShowUsernameInvalidMessage();
-		cout << "Please Enter Username : ";
-		getline(cin >> ws, username);
+		username = DataReader::PromptAndReadLine("Please Enter Username : ");
 	}
 	Username = username;
 
@@ -47,13 +46,11 @@ void UserInfo::ReadUsername() {
 
 // Reads and validates the password from user input.
 void UserInfo::ReadPassword() {
-	cout << "Please Enter Your Password : ";
-	string pass;
-	getline(cin >> ws, pass);
+	string pass = DataReader::PromptAndReadLine("Please Enter Your Password : ");
+
 	while (!InputValidatorUtils::IsValidPassword(pass)) {
 		ConsoleHelper::ShowPasswordInvalidMessage();
-		cout << "Please Enter Your Password : ";
-		getline(cin >> ws, pass);
+		pass = DataReader::PromptAndReadLine("Please Enter Your Password : ");
 	}
 	Password = pass;
 }
@@ -127,17 +124,13 @@ void UserInfo::ReadPasswordAndUsername()
 
 string UserInfo::ReadPasswordForSearch()
 {
-	cout << "Please Enter Password : ";
-	string password;
-	getline(cin >> ws, password);
+	string password = DataReader::PromptAndReadLine("Please Enter Your Password : ");
 	return password;
 }
 
 string UserInfo::ReadUsernameForSearch(const string message)
 {
-	cout << message;
-	string Username;
-	getline(cin >> ws, Username);
+	string Username = DataReader::PromptAndReadLine(message);
 	return Username;
 }
 
@@ -154,7 +147,7 @@ bool UserInfo::IsValidPasswordAndUsername(const UserInfo& user) {
 	}
 	return false;
 }
-void UserInfo::ReadFullInfoUser(string userName)
+void UserInfo::ReadFullInfoUser(const string& userName)
 {
 
 	Username = userName;

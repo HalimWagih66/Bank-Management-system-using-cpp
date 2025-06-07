@@ -309,9 +309,7 @@ void ManageUsers::SaveChanges() {
 
 // Reads a username from user input with a custom prompt message
 string ManageUsers::ReadUsername(string message) {
-	cout << message;
-	string UserName = "";
-	getline(cin >> ws, UserName);  // ws to consume any leading whitespace
+	string UserName = DataReader::PromptAndReadLine("Please Enter Username : ");  // ws to consume any leading whitespace
 	return UserName;
 }
 

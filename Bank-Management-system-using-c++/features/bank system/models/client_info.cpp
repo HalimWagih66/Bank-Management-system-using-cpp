@@ -5,6 +5,7 @@
 #include <vector>
 #include "../../../core/utils/headers/string_operations.h"
 #include "../../../core/utils/headers/input_validator_utils.h"
+#include "../../../../../ATM_System/ATM_System/core/utils/headers/data_reader.h"
 
 ClientInfo::ClientInfo() {
 	AccountNumber = "";
@@ -94,31 +95,25 @@ void ClientInfo::UpdateClientInfo() {
 // Prompt repeatedly for a valid name until input passes validation, then return it
 string ClientInfo::ReadValidName()
 {
-    string name = "";
-
-    cout << "Please enter a name: ";
-    getline(cin >> ws, name);
+	string name = DataReader::PromptAndReadLine("Please enter a name: ");
 
     // Loop until name is valid according to InputValidatorUtils
     while (!InputValidatorUtils::IsValidName(name)) {
-        cout << "Invalid Name, Please enter a valid Name: ";
-        getline(cin >> ws, name);
+        name = DataReader::PromptAndReadLine("Invalid Name, Please enter a valid Name: ");
     }
     return name;
 }
 
 // Prompt repeatedly for a valid PIN code (must be exactly 4 or 6 digits), then return it
 string ClientInfo::ReadValidPinCode() {
-    string pinCode;
-
-    cout << "Please enter a pin code: ";
-    getline(cin >> ws, pinCode);
+    string pinCode = DataReader::PromptAndReadLine("Please enter a pin code: ");
 
     while (!InputValidatorUtils::IsValidPinCode(pinCode)) {
-        cout << "\nInvalid PIN code.\n";
-        cout << "A PIN code must be exactly 4 or 6 digits.\n";
-        cout << "Please enter a pin code: ";
-        getline(cin >> ws, pinCode);
+        pinCode = DataReader::PromptAndReadLine(
+            "\nInvalid PIN code.\n" 
+            "A PIN code must be exactly 4 or 6 digits.\n"
+            "Please enter a pin code: "
+        );
     }
 
     return pinCode;
@@ -126,29 +121,23 @@ string ClientInfo::ReadValidPinCode() {
 
 // Prompt repeatedly for a valid phone number until it passes validation, then return it
 string ClientInfo::ReadValidPhoneNumber() {
-    string phoneNumber = "";
-
-    cout << "Please enter a Phone Number: ";
-    getline(cin >> ws, phoneNumber);
+    string phoneNumber = DataReader::PromptAndReadLine("Please enter a Phone Number: ");
 
     while (!InputValidatorUtils::IsValidPhoneNumber(phoneNumber)) {
-        cout << "Invalid Phone Number, Please enter a valid phone number: ";
-        getline(cin >> ws, phoneNumber);
+        phoneNumber = DataReader::PromptAndReadLine("Invalid Phone Number, Please enter a valid phone number: ");
     }
     return phoneNumber;
 }
 
 // Prompt user for an account balance >= 100, repeat until valid, then return it
 int ClientInfo::ReadValidAccountBalance() {
-    int balance = 0;
-
-    cout << "Please Enter an account balance: ";
-    cin >> balance;
+    int balance = DataReader::PromptAndReadNumber("Please Enter an account balance: ");
 
     while (balance < 100) {
-        cout << "Minimum balance you can add is 100 EG\n";
-        cout << "Please enter a number of more than 100 EG: ";
-        cin >> balance;
+        balance = DataReader::PromptAndReadNumber(
+            "Minimum balance you can add is 100 EG\n"
+            "Please enter a number of more than 100 EG: "
+        );
     }
     return balance;
 }

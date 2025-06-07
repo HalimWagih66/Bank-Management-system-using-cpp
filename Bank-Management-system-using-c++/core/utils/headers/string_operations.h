@@ -41,8 +41,6 @@ public:
 
 	static string RemovePauncuations(string text);
 
-	static string ReadString();
-
 	static string ReplaceWordInString(string line, string find, string replace, bool IsMatchCase = true);
 
 	static short CountEachWordInTheString(string line);
